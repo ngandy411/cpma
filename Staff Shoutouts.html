@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Shoutouts | CPMA PrimeTime</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .shoutouts-section {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 48px 7% 72px;
+    }
+
+    .shoutout-card {
+      display: grid;
+      grid-template-columns: minmax(180px, 280px) 1fr;
+      gap: 30px;
+      align-items: center;
+      padding: 24px;
+      background: white;
+      border: 1px solid #eeeaf0;
+      border-radius: 22px;
+      box-shadow: 0 10px 28px #20233a12;
+    }
+
+    .shoutout-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 16px;
+      background: #e0f5df;
+    }
+
+    .shoutout-copy h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      line-height: 1.15;
+    }
+
+    .shoutout-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .shoutout-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 12px;
+      color: #347247;
+      background: #e0f5df;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    #confetti-container {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: 38vh;
+      left: 50%;
+      width: 10px;
+      height: 16px;
+      border-radius: 2px;
+      opacity: 0;
+      animation: confetti-burst 3.2s ease-out forwards;
+    }
+
+    .confetti-piece.circle {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    @keyframes confetti-burst {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(0.4);
+      }
+
+      12% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate3d(var(--drift), 62vh, 0) rotate(720deg) scale(1);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .shoutouts-section {
+        padding: 36px 6% 54px;
+      }
+
+      .shoutout-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 16px;
+      }
+
+      .shoutout-photo {
+        max-height: 320px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .confetti-piece {
+        display: none;
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="confetti-container" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">CPMA <span>PrimeTime</span></a>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="Student Shoutouts.html">Student Shoutouts</a>
+      <a href="Staff Shoutouts.html" aria-current="page">Staff Shoutouts</a>
+      <a href="Piano Sign-up.html">Piano Sign-Up</a>
+      <a href="Weekly Video.html">Weekly Video</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">CELEBRATING OUR TEAM</p>
+      <h1>Staff Shoutouts</h1>
+      <p>Taking a moment to recognize the people who make PrimeTime special.</p>
+    </section>
+
+    <section class="shoutouts-section" aria-label="Staff shoutouts">
+      <article class="shoutout-card">
+        <img
+          class="shoutout-photo"
+          src="images/staff-photo.jpg"
+          alt="Photo of [Staff Member Name]">
+
+        <div class="shoutout-copy">
+          <span class="shoutout-label">PrimeTime Shoutout</span>
+          <h2>[Staff Member Name]</h2>
+          <p>
+            [Write the shoutout here. Describe something this staff member did
+            and why you appreciate it.]
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>CPMA PrimeTime · Creative. Connected. PrimeTime.</p>
+  </footer>
+
+  <script>
+    const confettiContainer = document.getElementById("confetti-container");
+    const colors = ["#4974d5", "#ffd166", "#ff7b9c", "#73c9a5", "#a78bfa"];
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      for (let i = 0; i < 90; i++) {
+        const piece = document.createElement("span");
+        const isCircle = Math.random() > 0.65;
+
+        piece.className = isCircle
+          ? "confetti-piece circle"
+          : "confetti-piece";
+
+        piece.style.backgroundColor =
+          colors[Math.floor(Math.random() * colors.length)];
+
+        piece.style.left = `${35 + Math.random() * 30}%`;
+        piece.style.top = `${30 + Math.random() * 15}vh`;
+        piece.style.setProperty(
+          "--drift",
+          `${Math.round((Math.random() - 0.5) * 1000)}px`
+        );
+        piece.style.animationDelay = `${Math.random() * 0.45}s`;
+
+        confettiContainer.appendChild(piece);
+
+        window.setTimeout(() => piece.remove(), 4000);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piano Sign-Up | CPMA PrimeTime</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .piano-signup {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 7% 72px;
+      text-align: center;
+    }
+
+    .piano-signup-card {
+      margin: 0 auto 28px;
+      padding: 20px;
+      background: white;
+      border: 1px solid #eeeaf0;
+      border-radius: 22px;
+      box-shadow: 0 10px 28px #20233a12;
+    }
+
+    .piano-signup-card iframe {
+      display: block;
+      width: 100%;
+      min-height: 886px;
+      border: 0;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .piano-signup .button {
+      margin-top: 8px;
+    }
+
+    @media (max-width: 560px) {
+      .piano-signup {
+        padding: 36px 6% 54px;
+      }
+
+      .piano-signup-card {
+        padding: 10px;
+      }
+
+      .piano-signup-card iframe {
+        min-height: 950px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">CPMA <span>PrimeTime</span></a>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="Student Shoutouts.html">Shoutouts</a>
+      <a href="Piano Sign-up.html" aria-current="page">Piano Sign-Up</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">YOUR TURN AT THE KEYS</p>
+      <h1>Piano Sign-Up</h1>
+      <p>
+        Want to play the piano? Add your name to the queue. Students will be
+        taken in the order their submissions arrive, with 10 minutes per turn
+        in Room 115.
+      </p>
+    </section>
+
+    <section class="piano-signup" aria-label="Piano sign-up form">
+      <div class="piano-signup-card">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSe4AaGVtR9sukql6_StBInALdauI3mlsaUtax_dW3786blxlQ/viewform?embedded=true"
+          title="CPMA PrimeTime piano sign-up form"
+          loading="lazy">
+          Loading the sign-up form…
+        </iframe>
+      </div>
+
+      <a class="button" href="index.html">← Back to the PrimeTime Hub</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>CPMA PrimeTime · Creative. Connected. PrimeTime.</p>
+  </footer>
+</body>
+</html>
