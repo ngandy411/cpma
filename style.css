@@ -8,8 +8,6 @@
   --green: #e0f5df;
   --purple: #eee3ff;
   --orange: #ffe8d4;
-  --accent: #4974d5;
-  --accent-dark: #345db8;
 }
 
 * {
@@ -47,7 +45,7 @@ body {
 }
 
 .brand span {
-  color: var(--accent);
+  color: #4974d5;
 }
 
 nav {
@@ -63,8 +61,8 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus-visible {
-  color: var(--accent);
+nav a:focus {
+  color: #4974d5;
 }
 
 .hero {
@@ -92,7 +90,7 @@ nav a:focus-visible {
 }
 
 .hero h1 span {
-  color: var(--accent);
+  color: #4974d5;
 }
 
 .hero-text {
@@ -106,17 +104,15 @@ nav a:focus-visible {
   display: inline-block;
   padding: 13px 22px;
   color: white;
-  background: var(--accent);
+  background: #4974d5;
   border-radius: 999px;
   font-weight: 700;
   text-decoration: none;
-  transition: background-color 160ms ease, transform 160ms ease;
 }
 
 .button:hover,
-.button:focus-visible {
-  background: var(--accent-dark);
-  transform: translateY(-2px);
+.button:focus {
+  background: #345db8;
 }
 
 .section,
@@ -157,34 +153,17 @@ nav a:focus-visible {
 }
 
 a.card:hover,
-a.card:focus-visible {
+a.card:focus {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px #20233a1a;
 }
 
-.card-blue {
-  background: var(--blue);
-}
-
-.card-yellow {
-  background: var(--yellow);
-}
-
-.card-pink {
-  background: var(--pink);
-}
-
-.card-green {
-  background: var(--green);
-}
-
-.card-purple {
-  background: var(--purple);
-}
-
-.card-orange {
-  background: var(--orange);
-}
+.card-blue { background: var(--blue); }
+.card-yellow { background: var(--yellow); }
+.card-pink { background: var(--pink); }
+.card-green { background: var(--green); }
+.card-purple { background: var(--purple); }
+.card-orange { background: var(--orange); }
 
 .card-icon {
   font-size: 1.8rem;
@@ -202,95 +181,75 @@ a.card:focus-visible {
 
 .card-link {
   margin-top: auto;
-  color: var(--accent-dark);
+  color: #345db8;
   font-weight: 800;
 }
 
 .updates {
   background: #eef5ff;
+}
+
+.updates-intro {
+  margin: 0 auto 32px;
   text-align: center;
 }
 
-.updates p:last-child,
-.about p:last-child {
+.updates-intro > p:last-child,
+.about > p:last-child {
   max-width: 650px;
   margin: 16px auto 0;
   color: var(--muted);
 }
 
-.about {
-  text-align: center;
-}
-
-.page-hero {
-  padding: 64px 7% 50px;
-  text-align: center;
-  background: #fff8e9;
-}
-
-.page-hero h1 {
-  margin: 0;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  line-height: 1.1;
-}
-
-.page-hero p:last-child {
-  max-width: 600px;
-  margin: 16px auto 0;
-  color: var(--muted);
-}
-
-/* Weekly Video page */
-.video-section {
-  width: 100%;
-  max-width: 1320px;
+.announcement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 24px 72px;
-  text-align: center;
 }
 
-.video-card {
-  width: 100%;
-  margin: 0 auto 28px;
-  padding: 20px;
-  background: white;
-  border: 1px solid #eeeaf0;
-  border-radius: 22px;
-  box-shadow: 0 10px 28px #20233a12;
-  text-align: left;
-}
-
-.video-frame {
-  width: 100%;
-  aspect-ratio: 16 / 9;
+.announcement-card {
   overflow: hidden;
-  background: #20233a;
-  border-radius: 14px;
+  background: white;
+  border: 1px solid #e6eaf2;
+  border-radius: 20px;
+  box-shadow: 0 8px 22px #20233a14;
 }
 
-.video-frame video,
-.video-frame iframe {
+.announcement-card img {
   display: block;
   width: 100%;
-  height: 100%;
-  border: 0;
+  height: 210px;
+  object-fit: cover;
+  background: #dfe8f5;
 }
 
-.video-frame video {
-  object-fit: contain;
+.announcement-content {
+  padding: 20px;
 }
 
-.video-caption {
-  padding: 8px 4px 0;
+.announcement-content .announcement-label {
+  margin: 0 0 8px;
+  color: #586db0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
 }
 
-.video-caption h2 {
-  margin: 12px 0 4px;
+.announcement-content h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  line-height: 1.3;
 }
 
-.video-caption p {
+.announcement-content > p:last-child {
   margin: 0;
   color: var(--muted);
+}
+
+.about {
+  text-align: center;
 }
 
 footer {
@@ -305,7 +264,8 @@ footer p {
 }
 
 @media (max-width: 800px) {
-  .card-grid {
+  .card-grid,
+  .announcement-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -330,19 +290,8 @@ footer p {
     padding: 54px 6%;
   }
 
-  .card-grid {
+  .card-grid,
+  .announcement-grid {
     grid-template-columns: 1fr;
-  }
-
-  .page-hero {
-    padding: 48px 6% 38px;
-  }
-
-  .video-section {
-    padding: 32px 12px 54px;
-  }
-
-  .video-card {
-    padding: 10px;
   }
 }
