@@ -3,15 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta
-    name="description"
-    content="Share your artwork with the CPMA PrimeTime community."
-  >
   <title>Art Submissions | CPMA PrimeTime</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    body.art-submissions-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .art-main {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .art-main .page-hero {
+      width: 100%;
+      padding: 64px 7% 40px;
+      text-align: center;
+    }
+
+    .art-main .page-hero p:last-child {
+      max-width: 600px;
+      margin: 16px auto 0;
+    }
+
+    .art-content {
+      width: min(100% - 40px, 760px);
+      margin: 0 auto;
+      padding: 28px 0 64px;
+      text-align: center;
+    }
+
+    .art-card {
+      padding: 32px;
+      background: white;
+      border: 1px solid #eeeaf0;
+      border-radius: 22px;
+      box-shadow: 0 10px 28px #20233a12;
+    }
+
+    .art-card h2 {
+      margin: 0 0 8px;
+    }
+
+    .art-card p {
+      margin: 0 0 24px;
+      color: #60647a;
+    }
+
+    .art-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    @media (max-width: 560px) {
+      .art-main .page-hero {
+        padding: 48px 6% 30px;
+      }
+
+      .art-content {
+        width: min(100% - 32px, 760px);
+        padding: 24px 0 48px;
+      }
+
+      .art-card {
+        padding: 24px 18px;
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body class="art-submissions-page">
   <header class="site-header">
     <a class="brand" href="index.html">CPMA <span>PrimeTime</span></a>
 
@@ -22,7 +91,7 @@
     </nav>
   </header>
 
-  <main>
+  <main class="art-main">
     <section class="page-hero">
       <p class="eyebrow">SHOW US WHAT YOU’VE CREATED</p>
       <h1>Art Submissions</h1>
@@ -32,14 +101,14 @@
       </p>
     </section>
 
-    <section class="video-section">
-      <div class="video-card">
+    <section class="art-content">
+      <div class="art-card">
         <h2>Ready to share your art?</h2>
         <p>
-          Use the button below to open the submission form and upload your artwork.
+          Open the submission form to share and upload your artwork.
         </p>
 
-        <p>
+        <div class="art-buttons">
           <a
             class="button"
             href="https://docs.google.com/forms/d/e/1FAIpQLSd1eeEc3lbRrpsDNWUphQL1lp3SweHiOjxECAXYXSKKNe1GBQ/viewform?usp=header"
@@ -48,10 +117,12 @@
           >
             Submit your artwork →
           </a>
-        </p>
-      </div>
 
-      <a class="button" href="index.html">← Back to the PrimeTime Hub</a>
+          <a class="button" href="index.html">
+            ← Back to the PrimeTime Hub
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
