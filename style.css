@@ -65,13 +65,18 @@ nav a:focus {
   color: #4974d5;
 }
 
+/* Homepage banner */
 .hero {
+  min-height: 620px;
   padding: 90px 7% 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background:
-    radial-gradient(ellipse at 18% 15%, #ffe6a7 0, transparent 32%),
-    radial-gradient(ellipse at 82% 20%, #d9edff 0, transparent 30%),
-    #fff8e9;
+    linear-gradient(rgba(255, 248, 233, 0.68), rgba(255, 248, 233, 0.68)),
+    url("images/IMG_7239.jpeg") center 48% / cover no-repeat;
 }
 
 .eyebrow {
@@ -185,6 +190,7 @@ a.card:focus {
   font-weight: 800;
 }
 
+/* Homepage announcements */
 .updates {
   background: #eef5ff;
 }
@@ -220,7 +226,7 @@ a.card:focus {
 .announcement-card img {
   display: block;
   width: 100%;
-  height: 210px;
+  height: 290px;
   object-fit: cover;
   background: #dfe8f5;
 }
@@ -263,10 +269,78 @@ footer p {
   margin: 0;
 }
 
+/* Weekly video page */
+.page-hero {
+  padding: 64px 7% 50px;
+  text-align: center;
+  background: #fff8e9;
+}
+
+.page-hero h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+}
+
+.page-hero p:last-child {
+  max-width: 600px;
+  margin: 16px auto 0;
+  color: var(--muted);
+}
+
+.video-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 7% 72px;
+  text-align: center;
+}
+
+.video-card {
+  margin-bottom: 28px;
+  padding: 20px;
+  background: white;
+  border: 1px solid #eeeaf0;
+  border-radius: 22px;
+  box-shadow: 0 10px 28px #20233a12;
+  text-align: left;
+}
+
+.video-frame {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #20233a;
+  border-radius: 14px;
+}
+
+.video-frame iframe,
+.video-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-frame video {
+  object-fit: contain;
+}
+
+.video-card h2 {
+  margin: 20px 0 4px;
+}
+
+.video-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
 @media (max-width: 800px) {
   .card-grid,
   .announcement-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .announcement-card img {
+    height: 240px;
   }
 }
 
@@ -281,7 +355,9 @@ footer p {
   }
 
   .hero {
+    min-height: 520px;
     padding: 70px 6%;
+    background-position: 52% center;
   }
 
   .section,
@@ -293,5 +369,21 @@ footer p {
   .card-grid,
   .announcement-grid {
     grid-template-columns: 1fr;
+  }
+
+  .announcement-card img {
+    height: 220px;
+  }
+
+  .page-hero {
+    padding: 48px 6% 38px;
+  }
+
+  .video-section {
+    padding: 36px 6% 54px;
+  }
+
+  .video-card {
+    padding: 12px;
   }
 }
